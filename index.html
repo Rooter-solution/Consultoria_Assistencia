@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROOTER SOLUTION</title>
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <style>
+        body {
+            background-color: black;
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px;
+            background-color: #0f0f0f;
+            border: 1px solid rgb(109, 107, 107);
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            text-transform: uppercase;
+            padding: 8px 12px;
+        }
+
+        nav a:hover {
+            color: aqua;
+            background-color: grey;
+        }
+
+        .hero {
+            padding: 60px;
+            text-align: center;
+            background: #000000;
+        }
+
+        .hero h2 {
+            color: rgb(237, 137, 15);
+        }
+
+        .hero h3 {
+            color: goldenrod;
+            font-size: 48px;
+        }
+
+        .animado {
+            display: inline-block;
+            animation: mover 2s infinite;
+        }
+
+        @keyframes mover {
+            0% {
+                transform: translateY(0);
+            }
+
+            25% {
+                transform: translateY(-5px);
+            }
+
+            50% {
+                transform: translateY(0);
+            }
+
+            75% {
+                transform: translateY(5px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .hero p {
+            color: rgb(167, 162, 162);
+            max-width: 100%;
+            margin: auto;
+            font-size: 18px;
+        }
+
+        .hero a {
+            display: inline-block;
+            margin: 10px;
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border: 1px solid rgb(191, 130, 0);
+            text-transform: uppercase;
+        }
+
+        .hero a:hover {
+            color: black;
+            background-color: grey;
+        }
+
+        /* Serviços */
+        #servicos {
+            background-color: #0f0e0e;
+            padding: 50px 20px;
+            text-align: center;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        #servicos h2 {
+            font-size: 2em;
+            margin-bottom: 30px;
+            color: #ddd;
+        }
+
+        #servicos .servico {
+            background-color: #2a2929;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(58, 57, 57, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #servicos .servico:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        #servicos .servico h3 {
+            font-size: 1.4em;
+            margin-bottom: 10px;
+            color: rgb(162, 91, 4);
+        }
+
+        #servicos .servico p {
+            font-size: 1em;
+            color: #ccc;
+            line-height: 1.5;
+        }
+
+        @media (min-width: 768px) {
+            #servicos {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+
+        /* Skills */
+        .container {
+            margin-top: 15px;
+            text-align: center;
+            border-bottom: 1px solid rgb(151, 148, 141);
+            padding: 30px;
+            background-color: #161515;
+        }
+
+        .card {
+            color: white;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .card h4 {
+            border: 1px solid white;
+            padding: 15px;
+            flex: 1 1 120px;
+            text-align: center;
+        }
+
+        h1 {
+            color: rgb(110, 110, 107);
+            font-size: 32px;
+            text-transform: uppercase;
+        }
+
+        strong {
+            color: white;
+        }
+
+        /* Redes sociais */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px;
+        }
+
+        .social-links a {
+            color: #ddd;
+            font-size: 1.5em;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #0077cc;
+        }
+
+        /* Footer */
+        footer {
+            font-size: 16px;
+            text-align: center;
+            padding: 20px;
+            color: #c7c3c3;
+            background-color: #0f0f0f;
+        }
+
+        /* Ajustes para telas pequenas */
+        @media (max-width: 480px) {
+            h3 {
+                font-size: 32px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+        }
+    </style>
+
+    <header>
+        <h1>Rooter Solution</h1>
+        <nav class="navbar">
+            <a href="index.html">Início</a>
+            <a href="servicos.html">Serviços</a>
+            <a href="sobre.html">Sobre</a>
+            <a href="depoimentos.html">depoimentos</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+    </header>
+   
+    <section class="hero">
+        <img width=280px src="Icon_Rooter_Solution.png">
+        <h2>─── Desenvolvedor & Especialista em Marketing</h2>
+        <h3 class="animado">SEJA BEM VINDO</h3>
+        <p><strong>Sou Henriques João</strong>, engenheiro de software e especialista em marketing. Decidi unir
+            tecnologia e estratégia de marketing para impulsionar negócios no ambiente digital.</p>
+        <p>Crio sites, aplicativos e soluções de automação, aplicando inteligência artificial e gestão de tráfego pago
+            para gerar resultados reais.</p>
+        <a href="servicos.html">Serviços</a>
+        <a href="contacto.html">Entrar em contacto</a>
+    </section>
+
+    <section id="servicos">
+        <h2>Nossos Serviços</h2>
+        <div class="servico">
+            <h3>Desenvolvimento Web</h3>
+            <p>Criação de sites responsivos e modernos para sua empresa.</p>
+        </div>
+        <div class="servico">
+            <h3>Design Gráfico</h3>
+            <p>Identidade visual, logotipos e materiais de comunicação.</p>
+        </div>
+        <div class="servico">
+            <h3>Consultoria Digital</h3>
+            <p>Orientação estratégica para presença online e marketing digital.</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <h1>Skill</h1>
+        <div class="card">
+            <h4>JavaScript</h4>
+            <h4>HTML</h4>
+            <h4>Node</h4>
+            <h4>React</h4>
+            <h4>Python</h4>
+            <h4>Linux</h4>
+            <h4>Meta Ads</h4>
+            <h4>Google Ads</h4>
+        </div>
+    </div>
+
+    <div class="social-links">
+        <h1>Minhas redes</h1>
+    </div>
+
+    <div class="social-links">
+        <a href="https://www.linkedin.com/in/seuusuario" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/seuusuario" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://twitter.com/seuusuario" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://instagram.com/seuusuario" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://youtube.com/@seuusuario" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://tiktok.com/@seuusuario" target="_blank"><i class="fab fa-tiktok"></i></a>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Rooter Solution | Todos direitos reservados</p>
+    </footer>
+</body>
+
+</html>

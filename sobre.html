@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre - Rooter Solution</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+    <style>
+        body {
+            background-color: black;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #ddd;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: #2a2929;
+            text-align: center;
+            padding: 20px;
+        }
+
+        header h1 {
+            color: goldenrod;
+            margin: 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            text-transform: uppercase;
+            padding: 8px 12px;
+        }
+
+        nav a:hover {
+            color: aqua;
+            background-color: grey;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .hero h2 {
+            color: rgb(237, 137, 15);
+            font-size: 28px;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: auto;
+            font-size: 18px;
+            color: #ccc;
+        }
+
+        .sobre-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            gap: 30px;
+        }
+
+        .sobre-texto {
+            max-width: 800px;
+            text-align: center;
+        }
+
+        .sobre-texto h3 {
+            color: goldenrod;
+            margin-bottom: 15px;
+        }
+
+        .sobre-texto p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #ccc;
+        }
+
+        .sobre-imagem img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        @media (min-width: 768px) {
+            .sobre-container {
+                flex-direction: row;
+                justify-content: center;
+                text-align: left;
+            }
+
+            .sobre-texto {
+                flex: 1;
+            }
+
+            .sobre-imagem {
+                flex: 1;
+                display: flex;
+                justify-content: center;
+            }
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 16px;
+            color: #aaa;
+            background-color: #2a2929;
+        }
+    </style>
+
+    <header>
+        <h1>Rooter Solution</h1>
+        <nav>
+            <a href="index.html">Início</a>
+            <a href="servicos.html">Serviços</a>
+            <a href="sobre.html">Sobre</a>
+            <a href="depoimentos.html">depoimentos</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Sobre Nós</h2>
+        <p>Conheça a história, missão e valores da Rooter Solution, e entenda como unimos tecnologia e marketing para
+            transformar negócios.</p>
+    </section>
+
+    <section class="sobre-container">
+        <div class="sobre-texto">
+            <h3>Quem Somos</h3>
+            <p>A <strong>Rooter Solution</strong> nasceu com o propósito de ajudar empresas e empreendedores a crescerem
+                no ambiente digital.
+                Fundada por <strong>Henriques João</strong>, engenheiro de software e especialista em marketing, nossa
+                missão é unir tecnologia,
+                automação e estratégias de marketing para gerar resultados reais.</p>
+
+            <h3>Missão</h3>
+            <p>Impulsionar negócios através de soluções digitais inovadoras, combinando desenvolvimento web,
+                inteligência artificial e gestão de tráfego pago.</p>
+
+            <h3>Visão</h3>
+            <p>Ser referência em soluções digitais na África e no mundo, oferecendo serviços que unem performance,
+                criatividade e autenticidade.</p>
+
+            <h3>Valores</h3>
+            <p>• Inovação e tecnologia<br>
+                • Transparência e ética<br>
+                • Foco em resultados<br>
+                • Crescimento sustentável</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Rooter Solution | Todos direitos reservados</p>
+    </footer>
+</body>
+
+</html>

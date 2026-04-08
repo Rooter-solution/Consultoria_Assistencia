@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contactos</title>
+</head>
+
+<body>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            background: #111;
+            color: white;
+        }
+
+        header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px;
+            background-color: #0f0f0f;
+            border: 1px solid rgb(109, 107, 107);
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            text-transform: uppercase;
+            padding: 8px 12px;
+        }
+
+        nav a:hover {
+            color: aqua;
+            background-color: grey;
+        }
+
+        footer {
+            text-align: center;
+            border: 1px solid white;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 40px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            background: #333;
+            color: white;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #25D366;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1ebe5d;
+        }
+    </style>
+
+     <header>
+        <h1>Rooter Solution</h1>
+        <nav class="navbar">
+            <a href="index.html">Início</a>
+            <a href="servicos.html">Serviços</a>
+            <a href="sobre.html">Sobre</a>
+            <a href="depoimentos.html">depoimentos</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+    </header>
+
+    <div class="container">
+
+        <h1>Contacte-nos</h1>
+
+        <form id="formContato">
+
+            <input type="text" id="nome" placeholder="Seu nome" required>
+
+            <input type="email" id="email" placeholder="Seu email" required>
+
+            <textarea id="mensagem" placeholder="Sua mensagem" rows="5"></textarea>
+
+            <button type="submit">Enviar Mensagem</button>
+
+        </form>
+
+    </div>
+
+    <script>
+
+        document.getElementById("formContato").addEventListener("submit", function (e) {
+
+            e.preventDefault();
+
+            let nome = document.getElementById("nome").value;
+            let email = document.getElementById("email").value;
+            let mensagem = document.getElementById("mensagem").value;
+
+            let texto = `Olá, meu nome é ${nome}%0AEmail: ${email}%0AMensagem: ${mensagem}`;
+
+            let numero = "258845998597";
+
+            let url = `https://wa.me/${845998597}?text=${texto}`;
+
+            window.open(url, "_blank");
+
+        });
+
+    </script>
+<footer>
+    <p>&copy; 2026 Rooter Solution | Todos direitos reservados</p>
+</footer>
+</body>
+</html>

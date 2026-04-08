@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Depoimentos</title>
+</head>
+
+<body>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #0f0f0f;
+            color: white;
+        }
+
+        /* HEADER */
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: #141414;
+        }
+
+        header h1 {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: #aaa;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            text-transform: uppercase;
+            padding: 8px 12px;
+        }
+
+        nav a:hover {
+            color: aqua;
+            background-color: grey;
+        }
+
+
+        /* SECTION */
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 50px 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        /* CARD */
+
+        .card {
+            background: #1b1b1b;
+            padding: 25px;
+            border-radius: 10px;
+            transition: 0.3s;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .cliente {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .cliente img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 12px;
+        }
+
+        .cliente h3 {
+            font-size: 16px;
+        }
+
+        .cliente span {
+            font-size: 13px;
+            color: #aaa;
+        }
+
+        .texto {
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        /* ESTRELAS */
+
+        .estrelas {
+            color: #f1c40f;
+            margin-top: 10px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #141414;
+            color: #aaa;
+        }
+    </style>
+
+    <header>
+        <h1>Depoimentos</h1>
+        <p>O que os nossos clientes dizem</p>
+        <nav class="navbar">
+            <a href="index.html">Início</a>
+            <a href="servicos.html">Serviços</a>
+            <a href="sobre.html">Sobre</a>
+            <a href="depoimentos.html">depoimentos</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+    </header>
+
+
+    <section class="container">
+
+
+        <div class="card">
+
+            <div class="cliente">
+
+                <img src="https://i.pravatar.cc/100?img=1">
+
+                <div>
+                    <h3>Carlos Mendes</h3>
+                    <span>Empresário</span>
+                </div>
+
+            </div>
+
+            <p class="texto">
+                Excelente serviço. O atendimento foi rápido e profissional.
+                Recomendo totalmente para quem procura qualidade.
+            </p>
+
+            <div class="estrelas">
+                ★★★★★
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="cliente">
+
+                <img src="https://i.pravatar.cc/100?img=5">
+
+                <div>
+                    <h3>Ana Paula</h3>
+                    <span>Designer</span>
+                </div>
+
+            </div>
+
+            <p class="texto">
+                Fiquei muito satisfeita com o resultado.
+                Superou minhas expectativas.
+            </p>
+
+            <div class="estrelas">
+                ★★★★★
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="cliente">
+
+                <img src="https://i.pravatar.cc/100?img=8">
+
+                <div>
+                    <h3>João Silva</h3>
+                    <span>Empreendedor</span>
+                </div>
+
+            </div>
+
+            <p class="texto">
+                Serviço profissional e confiável.
+                Voltarei a trabalhar com esta empresa.
+            </p>
+
+            <div class="estrelas">
+                ★★★★☆
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+        <p>© 2026 rooter solution | Todos direitos reservados</p>
+    </footer>
+
+</body>
+
+</html>
