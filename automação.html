@@ -3,12 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Landing Page Builder</title>
+<title>Landing Builder</title>
 </head>
 <body>
   
 <style>
-
 body{
 font-family:Arial;
 background:#0f0f0f;
@@ -21,10 +20,6 @@ width:90%;
 max-width:1000px;
 margin:auto;
 padding:40px;
-}
-
-h1{
-margin-bottom:10px;
 }
 
 label{
@@ -50,7 +45,6 @@ color:white;
 font-weight:bold;
 border-radius:6px;
 cursor:pointer;
-margin-right:10px;
 }
 
 .preview{
@@ -59,164 +53,10 @@ background:white;
 color:black;
 border-radius:10px;
 overflow:hidden;
-box-shadow:0 0 15px rgba(0,0,0,0.3);
-}
-
-/* landing */
-
-.capa{
-height:220px;
-background-size:cover;
-background-position:center;
-}
-
-.perfil{
-text-align:center;
-margin-top:-60px;
-}
-
-.perfil img{
-width:120px;
-height:120px;
-border-radius:50%;
-border:5px solid white;
-object-fit:cover;
-}
-
-.hero{
-text-align:center;
-padding:20px 30px;
-}
-
-.hero h2{
-margin-bottom:10px;
-}
-
-.hero p{
-max-width:600px;
-margin:auto;
-margin-bottom:20px;
-}
-
-.servicos{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:20px;
-padding:40px;
-}
-
-.card{
-padding:20px;
-background:#f5f5f5;
-border-radius:8px;
-text-align:center;
-}
-
-footer{
-text-align:center;
-padding:20px;
-font-size:14px;
-background:#111;
-color:white;
-}
-
-</style>
-
-
-<div class="container">
-
-<h1>Gerador Profissional de Landing Page</h1>
-
-<label>Nome da página / empresa</label>
-<input id="titulo">
-
-<label>Slogan</label>
-<input id="slogan">
-
-<label>Descrição</label>
-<textarea id="descricao"></textarea>
-
-<label>Texto do botão</label>
-<input id="botao">
-
-<label>Imagem de perfil</label>
-<input type="file" id="perfil">
-
-<label>Imagem de capa</label>
-<input type="file" id="capa">
-
-<label>Cor principal</label>
-<input type="color" id="corPrincipal" value="#00c896">
-
-<label>Cor de fundo</label>
-<input type="color" id="corFundo" value="#ffffff">
-
-<label>Serviço 1</label>
-<input id="serv1">
-
-<label>Serviço 2</label>
-<input id="serv2">
-
-<label>Serviço 3</label>
-<input id="serv3">
-
-<button onclick="gerarLanding()">Gerar Página</button>
-<button onclick="baixarHTML()">Baixar HTML</button>
-
-<div id="preview" class="preview"></div>
-
-</div>
-
-<script>
-
-let htmlGerado = ""
-
-function gerarLanding(){
-
-let titulo = document.getElementById("titulo").value
-let slogan = document.getElementById("slogan").value
-let descricao = document.getElementById("descricao").value
-let botao = document.getElementById("botao").value
-
-let serv1 = document.getElementById("serv1").value
-let serv2 = document.getElementById("serv2").value
-let serv3 = document.getElementById("serv3").value
-
-let corPrincipal = document.getElementById("corPrincipal").value
-let corFundo = document.getElementById("corFundo").value
-
-let perfilInput = document.getElementById("perfil")
-let capaInput = document.getElementById("capa")
-
-let perfilURL = ""
-let capaURL = ""
-
-if(perfilInput.files.length > 0){
-perfilURL = URL.createObjectURL(perfilInput.files[0])
-}
-
-if(capaInput.files.length > 0){
-capaURL = URL.createObjectURL(capaInput.files[0])
-}
-
-htmlGerado = `
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>${titulo}</title>
-
-<style>
-
-body{
-font-family:Arial;
-margin:0;
-background:${corFundo};
 }
 
 .capa{
 height:220px;
-background-image:url('${capaURL}');
 background-size:cover;
 background-position:center;
 }
@@ -239,9 +79,152 @@ text-align:center;
 padding:30px;
 }
 
+.servicos{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+padding:40px;
+}
+
+.card{
+padding:20px;
+background:#f5f5f5;
+border-radius:8px;
+text-align:center;
+}
+
+footer{
+text-align:center;
+padding:20px;
+background:#111;
+color:white;
+}
+
+</style>
+
+
+
+<div class="container">
+
+<h1>Gerador de Landing Page</h1>
+
+<label>Nome da página</label>
+<input id="titulo">
+
+<label>Slogan</label>
+<input id="slogan">
+
+<label>Descrição</label>
+<textarea id="descricao"></textarea>
+
+<label>Texto do botão</label>
+<input id="botao">
+
+<label>Foto de perfil</label>
+<input type="file" id="perfil">
+
+<label>Imagem de capa</label>
+<input type="file" id="capa">
+
+<label>Cor principal</label>
+<input type="color" id="corPrincipal" value="#00c896">
+
+<label>Serviço 1</label>
+<input id="serv1">
+
+<label>Serviço 2</label>
+<input id="serv2">
+
+<label>Serviço 3</label>
+<input id="serv3">
+
+<button onclick="gerarLanding()">Gerar Página</button>
+<button onclick="baixarHTML()">Baixar HTML</button>
+
+<div id="preview" class="preview"></div>
+
+</div>
+
+<script>
+
+let htmlGerado=""
+
+function fileToBase64(file){
+return new Promise((resolve)=>{
+let reader=new FileReader()
+reader.onload=()=>resolve(reader.result)
+reader.readAsDataURL(ile)
+})
+}
+
+async function gerarLanding(){
+
+let titulo=document.getElementById("titulo").value
+let slogan=document.getElementById("slogan").value
+let descricao=document.getElementById("descricao").value
+let botao=document.getElementById("botao").value
+
+let serv1=document.getElementById("serv1").value
+let serv2=document.getElementById("serv2").value
+let serv3=document.getElementById("serv3").value
+
+let cor=document.getElementById("corPrincipal").value
+
+let perfilInput=document.getElementById("perfil")
+let capaInput=document.getElementById("capa")
+
+let perfilURL=""
+let capaURL=""
+
+if(perfilInput.files[0]){
+perfilURL=await fileToBase64(perfilInput.files[0])
+}
+
+if(capaInput.files[0]){
+capaURL=await fileToBase64(capaInput.files[0])
+}
+
+htmlGerado=`
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>${titulo}</title>
+
+<style>
+
+body{
+font-family:Arial;
+margin:0;
+}
+
+.capa{
+height:220px;
+background-image:url('${capaURL}');
+background-size:cover;
+background-position:center;
+}
+
+.perfil{
+text-align:center;
+margin-top:-60px;
+}
+
+.perfil img{
+width:120px;
+height:120px;
+border-radius:50%;
+border:5px solid white;
+}
+
+.hero{
+text-align:center;
+padding:30px;
+}
+
 .hero button{
 padding:14px 25px;
-background:${corPrincipal};
+background:${cor};
 border:none;
 color:white;
 border-radius:6px;
@@ -249,7 +232,7 @@ border-radius:6px;
 
 .servicos{
 display:grid;
-grid-template-columns:repeat(3,1fr);
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 gap:20px;
 padding:40px;
 }
@@ -284,7 +267,6 @@ color:white;
 
 <h1>${titulo}</h1>
 <h3>${slogan}</h3>
-
 <p>${descricao}</p>
 
 <button>${botao}</button>
@@ -299,27 +281,25 @@ color:white;
 
 </div>
 
-<footer>
-© ${titulo}
-</footer>
+<footer>© ${titulo}</footer>
 
 </body>
 </html>
 `
 
-document.getElementById("preview").innerHTML = htmlGerado
+document.getElementById("preview").innerHTML=htmlGerado
 
 }
 
 function baixarHTML(){
 
-let blob = new Blob([htmlGerado], {type: "text/html"})
+let blob=new Blob([htmlGerado],{type:"text/html"})
 
-let link = document.createElement("a")
+let link=document.createElement("a")
 
-link.href = URL.createObjectURL(blob)
+link.href=URL.createObjectURL(blob)
 
-link.download = "landing-page.html"
+link.download="landing.html"
 
 link.click()
 
