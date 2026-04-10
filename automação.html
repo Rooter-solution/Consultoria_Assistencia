@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Gerador de Landing Page</title>
+
+</head>
+
+<body>
+
+<style>
+
+body{
+font-family:Arial;
+background:#0f0f0f;
+color:white;
+margin:0;
+}
+
+.container{
+width:90%;
+max-width:900px;
+margin:auto;
+padding:40px;
+}
+
+input, textarea{
+width:100%;
+padding:12px;
+margin-top:10px;
+border:none;
+border-radius:5px;
+}
+
+button{
+margin-top:20px;
+padding:14px;
+border:none;
+background:#00c896;
+color:white;
+font-weight:bold;
+border-radius:6px;
+cursor:pointer;
+}
+
+.preview{
+margin-top:40px;
+background:white;
+color:black;
+padding:30px;
+border-radius:8px;
+}
+
+</style>
+
+<div class="container">
+
+<h1>Criar Landing Page Automática</h1>
+<p>Preencha os dados abaixo e veja sua landing page ser criada.</p>
+
+<input id="titulo" placeholder="Título da página">
+
+<textarea id="descricao" placeholder="Descrição do produto"></textarea>
+
+<input id="botao" placeholder="Texto do botão (Ex: Comprar Agora)">
+
+<button onclick="gerarLanding()">Gerar Landing Page</button>
+
+<div id="preview" class="preview"></div>
+
+</div>
+
+<script>
+
+function gerarLanding(){
+
+let titulo = document.getElementById("titulo").value
+let descricao = document.getElementById("descricao").value
+let botao = document.getElementById("botao").value
+
+let landing = `
+<section style="text-align:center;padding:60px">
+<h1>${titulo}</h1>
+<p style="max-width:500px;margin:auto">${descricao}</p>
+<button style="padding:14px 25px;background:#00c896;border:none;border-radius:6px;color:white;font-size:16px">
+${botao}
+</button>
+</section>
+`
+
+document.getElementById("preview").innerHTML = landing
+
+}
+
+</script>
+
+</body>
+</html>
