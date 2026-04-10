@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gerador de Landing Page</title>
+<title>Landing Page Builder</title>
 </head>
 <body>
+  
 <style>
 
 body{
@@ -17,9 +18,13 @@ margin:0;
 
 .container{
 width:90%;
-max-width:900px;
+max-width:1000px;
 margin:auto;
 padding:40px;
+}
+
+h1{
+margin-bottom:10px;
 }
 
 label{
@@ -33,81 +38,130 @@ width:100%;
 padding:12px;
 margin-top:5px;
 border:none;
-border-radius:5px;
+border-radius:6px;
 }
 
 button{
 margin-top:20px;
-padding:14px;
+padding:14px 20px;
 border:none;
 background:#00c896;
 color:white;
 font-weight:bold;
 border-radius:6px;
 cursor:pointer;
+margin-right:10px;
 }
 
 .preview{
 margin-top:40px;
 background:white;
 color:black;
-border-radius:8px;
+border-radius:10px;
 overflow:hidden;
+box-shadow:0 0 15px rgba(0,0,0,0.3);
 }
 
-/* landing preview */
+/* landing */
 
-.hero{
-padding:60px;
+.capa{
+height:220px;
+background-size:cover;
+background-position:center;
+}
+
+.perfil{
 text-align:center;
+margin-top:-60px;
 }
 
-.hero img{
+.perfil img{
 width:120px;
 height:120px;
 border-radius:50%;
+border:5px solid white;
 object-fit:cover;
-margin-bottom:20px;
 }
 
-.hero h1{
+.hero{
+text-align:center;
+padding:20px 30px;
+}
+
+.hero h2{
 margin-bottom:10px;
 }
 
 .hero p{
-max-width:500px;
+max-width:600px;
 margin:auto;
 margin-bottom:20px;
+}
+
+.servicos{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+padding:40px;
+}
+
+.card{
+padding:20px;
+background:#f5f5f5;
+border-radius:8px;
+text-align:center;
+}
+
+footer{
+text-align:center;
+padding:20px;
+font-size:14px;
+background:#111;
+color:white;
 }
 
 </style>
 
 
-
 <div class="container">
 
-<h1>Criar Landing Page Automática</h1>
-<p>Preencha os dados abaixo e veja sua landing page ser criada.</p>
+<h1>Gerador Profissional de Landing Page</h1>
 
-<label>Título</label>
-<input id="titulo" placeholder="Título da página">
+<label>Nome da página / empresa</label>
+<input id="titulo">
+
+<label>Slogan</label>
+<input id="slogan">
 
 <label>Descrição</label>
-<textarea id="descricao" placeholder="Descrição do produto"></textarea>
+<textarea id="descricao"></textarea>
 
-<label>Texto do Botão</label>
-<input id="botao" placeholder="Ex: Comprar Agora">
+<label>Texto do botão</label>
+<input id="botao">
 
-<label>Imagem / Perfil</label>
-<input type="file" id="imagem">
+<label>Imagem de perfil</label>
+<input type="file" id="perfil">
 
-<label>Cor de Fundo</label>
+<label>Imagem de capa</label>
+<input type="file" id="capa">
+
+<label>Cor principal</label>
+<input type="color" id="corPrincipal" value="#00c896">
+
+<label>Cor de fundo</label>
 <input type="color" id="corFundo" value="#ffffff">
 
-<label>Cor do Botão</label>
-<input type="color" id="corBotao" value="#00c896">
+<label>Serviço 1</label>
+<input id="serv1">
 
-<button onclick="gerarLanding()">Gerar Landing Page</button>
+<label>Serviço 2</label>
+<input id="serv2">
+
+<label>Serviço 3</label>
+<input id="serv3">
+
+<button onclick="gerarLanding()">Gerar Página</button>
+<button onclick="baixarHTML()">Baixar HTML</button>
 
 <div id="preview" class="preview"></div>
 
@@ -115,46 +169,159 @@ margin-bottom:20px;
 
 <script>
 
+let htmlGerado = ""
+
 function gerarLanding(){
 
 let titulo = document.getElementById("titulo").value
+let slogan = document.getElementById("slogan").value
 let descricao = document.getElementById("descricao").value
 let botao = document.getElementById("botao").value
+
+let serv1 = document.getElementById("serv1").value
+let serv2 = document.getElementById("serv2").value
+let serv3 = document.getElementById("serv3").value
+
+let corPrincipal = document.getElementById("corPrincipal").value
 let corFundo = document.getElementById("corFundo").value
-let corBotao = document.getElementById("corBotao").value
 
-let imagemInput = document.getElementById("imagem")
+let perfilInput = document.getElementById("perfil")
+let capaInput = document.getElementById("capa")
 
-let imagemURL = ""
+let perfilURL = ""
+let capaURL = ""
 
-if(imagemInput.files.length > 0){
-imagemURL = URL.createObjectURL(imagemInput.files[0])
+if(perfilInput.files.length > 0){
+perfilURL = URL.createObjectURL(perfilInput.files[0])
 }
 
-let landing = `
-<section class="hero" style="background:${corFundo}">
+if(capaInput.files.length > 0){
+capaURL = URL.createObjectURL(capaInput.files[0])
+}
 
-${imagemURL ? `<img src="${imagemURL}">` : ""}
+htmlGerado = `
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>${titulo}</title>
 
-<h1>${titulo}</h1>
+<style>
 
-<p>${descricao}</p>
+body{
+font-family:Arial;
+margin:0;
+background:${corFundo};
+}
 
-<button style="
-padding:14px 28px;
-background:${corBotao};
+.capa{
+height:220px;
+background-image:url('${capaURL}');
+background-size:cover;
+background-position:center;
+}
+
+.perfil{
+text-align:center;
+margin-top:-60px;
+}
+
+.perfil img{
+width:120px;
+height:120px;
+border-radius:50%;
+border:5px solid white;
+object-fit:cover;
+}
+
+.hero{
+text-align:center;
+padding:30px;
+}
+
+.hero button{
+padding:14px 25px;
+background:${corPrincipal};
 border:none;
 color:white;
 border-radius:6px;
-font-size:16px;
-">
-${botao}
-</button>
+}
 
-</section>
+.servicos{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+padding:40px;
+}
+
+.card{
+padding:20px;
+background:#f5f5f5;
+border-radius:8px;
+text-align:center;
+}
+
+footer{
+text-align:center;
+padding:20px;
+background:#111;
+color:white;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="capa"></div>
+
+<div class="perfil">
+<img src="${perfilURL}">
+</div>
+
+<div class="hero">
+
+<h1>${titulo}</h1>
+<h3>${slogan}</h3>
+
+<p>${descricao}</p>
+
+<button>${botao}</button>
+
+</div>
+
+<div class="servicos">
+
+<div class="card">${serv1}</div>
+<div class="card">${serv2}</div>
+<div class="card">${serv3}</div>
+
+</div>
+
+<footer>
+© ${titulo}
+</footer>
+
+</body>
+</html>
 `
 
-document.getElementById("preview").innerHTML = landing
+document.getElementById("preview").innerHTML = htmlGerado
+
+}
+
+function baixarHTML(){
+
+let blob = new Blob([htmlGerado], {type: "text/html"})
+
+let link = document.createElement("a")
+
+link.href = URL.createObjectURL(blob)
+
+link.download = "landing-page.html"
+
+link.click()
 
 }
 
